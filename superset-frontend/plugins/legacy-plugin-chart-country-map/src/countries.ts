@@ -214,8 +214,10 @@ import wallis_and_futuna from './countries/wallis_and_futuna.geojson';
 import yemen from './countries/yemen.geojson';
 import zambia from './countries/zambia.geojson';
 import zimbabwe from './countries/zimbabwe.geojson';
+import new_york from './countries/new_york.geojson';
 
 export const countries = {
+  new_york,
   afghanistan,
   aland,
   albania,
