@@ -29,7 +29,7 @@ import antarctica from './countries/antarctica.geojson';
 import antigua_and_barbuda from './countries/antigua_and_barbuda.geojson';
 import argentina from './countries/argentina.geojson';
 import armenia from './countries/armenia.geojson';
-import australia from './countries/australia.geojson';
+// import australia from './countries/australia.geojson';
 import austria from './countries/austria.geojson';
 import azerbaijan from './countries/azerbaijan.geojson';
 import bahrain from './countries/bahrain.geojson';
@@ -230,7 +230,7 @@ export const countries = {
   antigua_and_barbuda,
   argentina,
   armenia,
-  australia,
+  // australia,
   austria,
   azerbaijan,
   bahrain,
