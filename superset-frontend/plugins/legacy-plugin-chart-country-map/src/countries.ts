@@ -390,7 +390,7 @@ export const countries = {
   tanzania,
   thailand,
   the_bahamas,
-  // timorleste,
+  timorleste,
   togo,
   tonga,
   trinidad_and_tobago,
