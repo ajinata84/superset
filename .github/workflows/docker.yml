@@ -69,6 +69,7 @@ jobs:
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UV_LINK_MODE: copy 
         run: |
           # Single platform builds in pull_request context to speed things up
           if [ "${{ github.event_name }}" = "push" ]; then
