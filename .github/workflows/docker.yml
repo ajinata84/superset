@@ -84,7 +84,7 @@ jobs:
           fi
 
           supersetbot docker \
-            --extra-flags -t ${{ secrets.DOCKERHUB_USER }}/supersetbot:${{ matrix.build_preset }} \
+            --extra-flags "-t ${{ secrets.DOCKERHUB_USER }}/supersetbot:${{ matrix.build_preset }}" \
             --preset ${{ matrix.build_preset }} \
             --context "$EVENT" \
             --context-ref "$RELEASE" $FORCE_LATEST \
