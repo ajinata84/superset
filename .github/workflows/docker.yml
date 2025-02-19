@@ -38,7 +38,7 @@ jobs:
       DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
       IMAGE_TAG: ajinata84/superset:GHA-${{ matrix.build_preset }}-${{ github.run_id }}
-
+      NODE_OPTIONS: "--max_old_space_size=4096"
     steps:
 
       - name: "Checkout ${{ github.ref }} ( ${{ github.sha }} )"
