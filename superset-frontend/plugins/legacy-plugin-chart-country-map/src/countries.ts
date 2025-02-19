@@ -112,6 +112,7 @@ import uzbekistan from './countries/uzbekistan.geojson';
 import venezuela from './countries/venezuela.geojson';
 import vietnam from './countries/vietnam.geojson';
 import zambia from './countries/zambia.geojson';
+import new_york from './countries/new_york.geojson';
 
 export const countries = {
   afghanistan,
@@ -182,7 +183,7 @@ export const countries = {
   puerto_rico,
   qatar,
   russia,
-  // rwanda,
+  rwanda,
   saint_barthelemy,
   saint_martin,
   saudi_arabia,
@@ -209,6 +210,7 @@ export const countries = {
   venezuela,
   vietnam,
   zambia,
+  new_york
 };
 
 export const countryOptions = Object.keys(countries).map(x => {
