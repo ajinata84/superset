@@ -258,6 +258,7 @@ USER superset
 ######################################################################
 FROM lean AS ci
 USER root
-RUN uv pip install .[postgres]
+RUN uv pip install .[postgres] 
+RUN pip install psycopg2-binary sqlalchemy duckdb-engine
 USER superset
 CMD ["/app/docker/entrypoints/docker-ci.sh"]
