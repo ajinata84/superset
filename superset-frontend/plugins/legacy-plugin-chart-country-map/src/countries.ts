@@ -23,7 +23,7 @@ import albania from './countries/albania.geojson';
 import algeria from './countries/algeria.geojson';
 import american_samoa from './countries/american_samoa.geojson';
 import andorra from './countries/andorra.geojson';
-// import angola from './countries/angola.geojson';
+import angola from './countries/angola.geojson';
 import anguilla from './countries/anguilla.geojson';
 import antarctica from './countries/antarctica.geojson';
 import antigua_and_barbuda from './countries/antigua_and_barbuda.geojson';
@@ -224,7 +224,7 @@ export const countries = {
   algeria,
   american_samoa,
   andorra,
-  // angola,
+  angola,
   anguilla,
   antarctica,
   antigua_and_barbuda,
