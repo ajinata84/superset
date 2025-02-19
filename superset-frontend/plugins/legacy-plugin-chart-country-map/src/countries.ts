@@ -182,7 +182,7 @@ export const countries = {
   puerto_rico,
   qatar,
   russia,
-  rwanda,
+  // rwanda,
   saint_barthelemy,
   saint_martin,
   saudi_arabia,
