@@ -210,7 +210,7 @@ export const countries = {
   venezuela,
   vietnam,
   zambia,
-  new_york
+  new_york,
 };
 
 export const countryOptions = Object.keys(countries).map(x => {

@@ -63,15 +63,18 @@ function CountryMap(element, props) {
     .createLinearScale(d3Extent(data, v => v.metric));
   const colorScale = CategoricalColorNamespace.getScale(colorScheme);
 
-  const getRegionIdentifier = d => (country === "new_york" ? d.properties.borough : d.properties.ISO);
+  const getRegionIdentifier = d => (
+    country === 'new_york' ? d.properties.borough : d.properties.ISO
+  );
 
   const colorMap = {};
   data.forEach(d => {
-    const regionId = d.country_id; // Keep consistent with the data identifier
-    colorMap[regionId] = colorScheme ? colorScale(regionId, sliceId) : linearColorScale(d.metric);
+    const regionId = d.country_id;
+    colorMap[regionId] = colorScheme ?
+      colorScale(regionId, sliceId)
+       : linearColorScale(d.metric);
   });
   const colorFn = d => colorMap[getRegionIdentifier(d)] || 'none';
-
 
   const path = d3.geo.path();
   const div = d3.select(container);
@@ -150,10 +153,11 @@ function CountryMap(element, props) {
 
   backgroundRect.on('click', clicked);
 
-  const selectAndDisplayNameOfRegion = function selectAndDisplayNameOfRegion(feature) {
+  const selectAndDisplayNameOfRegion = function selectAndDisplayNameOfRegion(feature,
+  ) {
     let name = '';
     if (feature && feature.properties) {
-      if (country === "new_york") {
+      if (country === 'new_york') {
         name = `${feature.properties.zone} (${feature.properties.borough})`;
       } else if (feature.properties.ID_2) {
         name = feature.properties.NAME_2;
