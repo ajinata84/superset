@@ -150,12 +150,12 @@ function CountryMap(element, props) {
 
   backgroundRect.on('click', clicked);
 
-  const selectAndDisplayNameOfRegion = function selectAndDisplayNameOfRegion(
-    feature,
-  ) {
+  const selectAndDisplayNameOfRegion = function selectAndDisplayNameOfRegion(feature) {
     let name = '';
     if (feature && feature.properties) {
-      if (feature.properties.ID_2) {
+      if (country === "new_york") {
+        name = `${feature.properties.zone} (${feature.properties.borough})`;
+      } else if (feature.properties.ID_2) {
         name = feature.properties.NAME_2;
       } else {
         name = feature.properties.NAME_1;
