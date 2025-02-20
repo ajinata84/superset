@@ -185,7 +185,7 @@ export const countries = {
   russia,
   rwanda,
   saint_barthelemy,
-  // saint_martin,
+  saint_martin,
   saudi_arabia,
   singapore,
   slovenia,
