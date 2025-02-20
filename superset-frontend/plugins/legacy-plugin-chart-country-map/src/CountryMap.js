@@ -63,13 +63,15 @@ function CountryMap(element, props) {
     .createLinearScale(d3Extent(data, v => v.metric));
   const colorScale = CategoricalColorNamespace.getScale(colorScheme);
 
+  const getRegionIdentifier = d => (country === "new_york" ? d.properties.borough : d.properties.ISO);
+
   const colorMap = {};
   data.forEach(d => {
-    colorMap[d.country_id] = colorScheme
-      ? colorScale(d.country_id, sliceId)
-      : linearColorScale(d.metric);
+    const regionId = d.country_id; // Keep consistent with the data identifier
+    colorMap[regionId] = colorScheme ? colorScale(regionId, sliceId) : linearColorScale(d.metric);
   });
-  const colorFn = d => colorMap[d.properties.ISO] || 'none';
+  const colorFn = d => colorMap[getRegionIdentifier(d)] || 'none';
+
 
   const path = d3.geo.path();
   const div = d3.select(container);

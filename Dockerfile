@@ -85,15 +85,19 @@ RUN --mount=type=bind,target=./requirements/local.txt,src=./requirements/local.t
     --mount=type=cache,target=/root/.cache/pip \
     pip install -r requirements/local.txt
 
-COPY --chown=superset:superset --from=superset-node /app/superset/static/assets superset/static/assets
-## Lastly, let's install superset itself
-COPY --chown=superset:superset superset superset
-RUN --mount=type=cache,target=/root/.cache/pip \
+    
+    COPY --chown=superset:superset --from=superset-node /app/superset/static/assets superset/static/assets
+    ## Lastly, let's install superset itself
+    COPY --chown=superset:superset superset superset
+    RUN --mount=type=cache,target=/root/.cache/pip \
     pip install -e . \
     && flask fab babel-compile --target superset/translations \
     && chown -R superset:superset superset/translations
+    
+    COPY --chmod=755 ./docker/run-server.sh /usr/bin/
 
-COPY --chmod=755 ./docker/run-server.sh /usr/bin/
+RUN RUN pip install psycopg2-binary sqlalchemy duckdb-engine==0.14.1 pillow
+
 USER superset
 
 HEALTHCHECK CMD curl -f "http://localhost:${SUPERSET_PORT}/health"
@@ -131,6 +135,7 @@ RUN --mount=type=bind,target=./requirements/base.txt,src=./requirements/base.txt
     --mount=type=bind,target=./requirements/docker.txt,src=./requirements/docker.txt \
     --mount=type=cache,target=/root/.cache/pip \
     pip install -r requirements/docker.txt
+
 
 USER superset
 ######################################################################
