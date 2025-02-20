@@ -96,7 +96,7 @@ RUN --mount=type=bind,target=./requirements/local.txt,src=./requirements/local.t
     
     COPY --chmod=755 ./docker/run-server.sh /usr/bin/
 
-RUN RUN pip install psycopg2-binary sqlalchemy duckdb-engine==0.14.1 pillow
+RUN pip install psycopg2-binary sqlalchemy duckdb-engine==0.14.1 pillow
 
 USER superset
 
@@ -135,6 +135,8 @@ RUN --mount=type=bind,target=./requirements/base.txt,src=./requirements/base.txt
     --mount=type=bind,target=./requirements/docker.txt,src=./requirements/docker.txt \
     --mount=type=cache,target=/root/.cache/pip \
     pip install -r requirements/docker.txt
+
+RUN pip install psycopg2-binary sqlalchemy duckdb-engine==0.14.1 pillow
 
 
 USER superset
