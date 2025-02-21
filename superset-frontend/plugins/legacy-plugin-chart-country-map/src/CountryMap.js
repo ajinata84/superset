@@ -68,12 +68,12 @@ function CountryMap(element, props) {
   );
 
   const colorMap = {};
-  data.forEach(d => {
-    const regionId = d.country_id;
-    colorMap[regionId] = colorScheme ?
-      colorScale(regionId, sliceId)
-       : linearColorScale(d.metric);
-  });
+    data.forEach(d => {
+      const regionId = d.country_id;
+      colorMap[regionId] = colorScheme ?
+        colorScale(regionId, sliceId)
+         : linearColorScale(d.metric);
+    });
   const colorFn = d => colorMap[getRegionIdentifier(d)] || 'none';
 
   const path = d3.geo.path();
@@ -153,8 +153,7 @@ function CountryMap(element, props) {
 
   backgroundRect.on('click', clicked);
 
-  const selectAndDisplayNameOfRegion = function selectAndDisplayNameOfRegion(feature,
-  ) {
+  const selectAndDisplayNameOfRegion = function selectAndDisplayNameOfRegion(feature) {
     let name = '';
     if (feature && feature.properties) {
       if (country === 'new_york') {
@@ -183,7 +182,7 @@ function CountryMap(element, props) {
     d3.select(this).style('fill', c);
     selectAndDisplayNameOfRegion(d);
     const result = data.filter(
-      region => region.country_id === d.properties.ISO,
+      region => region.country_id === getRegionIdentifier(d),
     );
     updateMetrics(result);
   };
